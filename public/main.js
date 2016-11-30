@@ -29,6 +29,28 @@ var d = getDistanceFromLatLonInKm(lat_1,lon_1,lat_2,lon_2);
 
 console.log(d);
 
+function emissionScoreCalculator(x){
+	// E = ((ax^2+bx+c)/(S*PLF))*(1-CF)*(CW)*(EF*M+P)
+	// x is the flight distance
+	// 2.0 tonnes per year - an average person
+	var s = 280.39;
+	var plf = 0.77;
+	var dc = 125;
+	var cf = 1-0.951;
+	var cw = 1.05;
+	var ef = 3.15;
+	var p = 0.51;
+	var m = 2;
+	var a = 0.000134576;
+	var b = 6.1798;
+	var c = 3446.20;
+
+	var e = ((a*(x^2)+b*x+c)/(s*plf))*(1-cf)*(cw)*(ef*m+p);
+	// returns co2 emission in tonnes
+	return e/1000;
+}
+
+console.log(emissionScoreCalculator(4000));
 
 function saveRecord (theData) {
 	// Set the namespace for this note

@@ -14,6 +14,12 @@
     <link href="css/stylish-portfolio.css" rel="stylesheet">
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+
+    <!-- Map dependencies -->
+    <link rel="stylesheet" href="https://cartodb-libs.global.ssl.fastly.net/cartodb.js/v3/3.12/themes/css/cartodb.css" />
+    <script src="https://cartodb-libs.global.ssl.fastly.net/cartodb.js/v3/3.12/cartodb.js"></script>
+    <script src="http://unpkg.com/leaflet-arc/bin/leaflet-arc.min.js"></script>
+    <link href="css/map.css" rel="stylesheet">
 </head>
 
 <body>
@@ -41,10 +47,8 @@
     </section>
 
     <!-- Map -->
-    <aside class="map">
-        <div class="text-vertical-center">
-        </div>
-    </aside>
+    <div id="cartodb-map">
+    </div>
 
     <!-- Calculation -->
     <aside class="calculation">
@@ -177,8 +181,17 @@
         }
     });
     </script>
+    <script type="tooltip/html" id="tooltip_template">
+      <div class="cartodb-tooltip-content-wrapper">
+        <div class="cartodb-tooltip-content">
+          <p>{{name}}</p>
+        </div>
+      </div>
+    </script>
     <script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
     <script src="main.js"></script>
+    <script src="js/viz.js"></script>
+    <script src="js/map.js"></script>
 </body>
 
 </html>

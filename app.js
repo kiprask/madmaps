@@ -58,7 +58,7 @@ app.post("/save", function (request, response) {
 });
 
 // GET - API route to get the CouchDB data after page load.
-app.get("/api/:key", function (request, response) {
+app.get("/api", function (request, response) {
 	var theNamespace = request.params.key;
 	console.log('Making a db request for namespace: ' + theNamespace);
 	// Use the Request lib to GET the data in the CouchDB on Cloudant
@@ -74,12 +74,7 @@ app.get("/api/:key", function (request, response) {
 		var theData = body.rows;
 
 		if (theData){
-			// And then filter the results to match the desired key.
-			var filteredData = theData.filter(function (d) {
-				return d.doc.namespace == request.params.key;
-			});
-			// Now use Express to render the JSON.
-			response.json(filteredData);
+			response.json(theData);
 		}
 		else{
 			response.json({noData:true});

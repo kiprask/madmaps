@@ -81,6 +81,30 @@ function saveRecord (theData) {
 	});
 }
 
+function getAllData(){
+
+	$.ajax({
+		url: "/api",
+		type: "GET",
+		data: JSON,
+		error: function(resp){
+			console.log(resp);
+			alert("Error getting data. Refresh and try again!");
+		},
+		success: function (d) {
+			console.log(d);
+			
+			var allGPA = 0;
+			//loop through every piece of data to get overall tGPA
+			for (var i=0; i<d.length; i++){
+				allGPA += Number(d[i].doc.tGPA);
+			}
+			console.log(allGPA);
+			$("#overallGPA").html(allGPA);
+		}
+	});
+}
+
 $(document).ready(function(){
 	console.log("Page Loaded!");
 
@@ -92,7 +116,7 @@ $(document).ready(function(){
 			name: $("#username").val() || "ME",
 			netID: $("#netID").val() || "ab123",
 			coordinates: $("#coordinates").val() || [{lat:54, long:25}, {lat:77, long:22}],
-			tGPA: $("#tGPA").val() || "9000",
+			tGPA: parseFloat($("#tGPA").val()).toFixed(2) || 9000,
 			created_at: new Date()
 		};
 
@@ -101,5 +125,11 @@ $(document).ready(function(){
 
 		//Return false to prevent the form from submitting itself
 		return false;
+	});
+
+	$("#getAllBtn").click(function() {
+		console.log("getAll button clicked!");
+
+		getAllData();
 	});
 });

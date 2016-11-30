@@ -16,12 +16,12 @@ app.use(bodyParser.json());
 
 //******* DATABASE Configuration *******
 // The username you use to log in to cloudant.com
-var CLOUDANT_USERNAME="stasdfr";
+var CLOUDANT_USERNAME="kiprask";
 // The name of your database
-var CLOUDANT_DATABASE="mashups_00";
+var CLOUDANT_DATABASE="madmaps";
 // These two are generated from your Cloudant dashboard of the above database.
-var CLOUDANT_KEY="omessinglainguessedentoo";
-var CLOUDANT_PASSWORD="181c2d128366aa0cf690a246690aefca63810047";
+var CLOUDANT_KEY="astedinsingedivightseagr";
+var CLOUDANT_PASSWORD="536d055cb74e71dc5f4b0f295a551fd138d172ee";
 
 var CLOUDANT_URL = "https://" + CLOUDANT_USERNAME + ".cloudant.com/" + CLOUDANT_DATABASE;
 
@@ -87,16 +87,10 @@ app.get("/api/:key", function (request, response) {
 	});
 });
 
-// GET - Route to load the view and client side javascript to display the notes.
-app.get("/:key", function (request, response) {
-	console.log("In key...");
-	//request.params.key = the term entered after the /
-	response.render('notes',{title: "Notepad", key: request.params.key});
-});
 
 // GET - Catch All route
 app.get("*", function(request,response){
-	response.send("Sorry, nothing to see here.");
+	response.redirect("/");
 });
 
 app.listen(3000);

@@ -1,25 +1,184 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width">
-    <title>Madmaps</title> 
-    <link rel="stylesheet" type="text/css" href="../public/style.css">
-  </head>
+<html lang="en">
 
-  <body>
-  <div id="enterData">
-    <input type="text" name="username" id="username" placeholder="Your Name?"></input>
-    <input type="text" name="netID" id="netID" placeholder="Your netID?"></input>
-    <input type="text" name="travelGPA" id="tGPA" placeholder="Your travel GPA?"></input>
-    <button id="submitBtn">Calculate</button>
-  </div>
-  <div id="getAllData">
-    <button id="getAllBtn">Get NYUAD Map</button>
-    <p id="overallGPA"></p>
-  </div>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+    <title> NYUAD Travel Map </title>
 
-  <script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
-  <script src="main.js"></script>
-  </body>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/stylish-portfolio.css" rel="stylesheet">
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header id="top" class="header">
+        <div class="text-vertical-center">
+            <h1> NYUAD Travel Map </h1>
+            <h3> Calculate your Travel GPA </h3>
+            <br>
+            <a href="#about" class="btn btn-dark btn-lg"> EXPLORE </a>
+        </div>
+    </header>
+
+    <!-- About -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2> Welcome Global Leader </h2>
+                    <p class="lead"> Select the cities you have traveled to during your time at NYUAD! </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map -->
+    <aside class="map">
+        <div class="text-vertical-center">
+        </div>
+    </aside>
+
+    <!-- Calculation -->
+    <aside class="calculation">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <input  class="btn btn-lg btn-light" type='text' name='username' id='username' placeholder='Your Name?'></input>
+                    <input class="btn btn-lg btn-light" type='text' name='netID' id='netID' placeholder='Your NetID?'></input>
+                    <br>
+                    <button class="btn btn-lg btn-dark2" id='submitBtn'> CALCULATE </button>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Results -->
+    <section id="results" class="results">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 col-lg-offset-1 text-center">
+                    <h1> Results </h1>
+                    <hr class="small">
+                    <h3> Your Travel GPA is: </h3>
+                    <div class="row">
+                        <div class="col-md-1"> <img class="img-human img-responsive" src="img/human.png"> </div>
+                        <div class="col-md-1"> <img class="img-human img-responsive" src="img/human.png"> </div>
+                        <div class="col-md-1"> <img class="img-human img-responsive" src="img/human.png"> </div>
+                        <div class="col-md-1"> <img class="img-human img-responsive" src="img/human.png"> </div>
+                        <div class="col-md-1"> <img class="img-human img-responsive" src="img/human.png"> </div>
+                        <div class="col-md-1"> <img class="img-human img-responsive" src="img/human.png"> </div>
+                        <div class="col-md-1"> <img class="img-human img-responsive" src="img/human.png"> </div>
+                        <div class="col-md-1"> <img class="img-human img-responsive" src="img/human.png"> </div>
+                        <div class="col-md-1"> <img class="img-human img-responsive" src="img/human.png"> </div>
+                        <div class="col-md-1"> <img class="img-human img-responsive" src="img/human.png"> </div>
+                        <div class="col-md-1"> <img class="img-human img-responsive" src="img/human.png"> </div>
+                        <div class="col-md-1"> <img class="img-human img-responsive" src="img/human.png"> </div>
+                        <div class="col-md-1"> <img class="img-human img-responsive" src="img/human.png"> </div>
+                        <div class="col-md-1"> <img class="img-human img-responsive" src="img/human.png"> </div>
+                        <div class="col-md-1"> <img class="img-human img-responsive" src="img/human.png"> </div>
+                        <div class="col-md-1"> <img class="img-human img-responsive" src="img/human.png"> </div>
+                    </div>
+                    <div class='row'>
+                        <h4> The maximum amount of CO2 a person should produce per year in order to stop climate change is 2 tons. </h4>
+                        <div class="col-md-1"> <img class="img-human img-responsive" id='main' src="img/human.png"> </div>
+                    </div>
+                    <a href="#" class="btn btn-lg btn-dark"> OFFSET YOUR CO2 EMISSION </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 col-lg-offset-1 text-center">
+                    <h4><strong> NYUAD Travel Map</strong>
+                    </h4>
+                    <p>New York University
+                        <br>Saadiyat Island, Abu Dhabi</p>
+                    <br>
+                    <ul class="list-inline">
+                        <li>
+                            <a href="https://www.facebook.com/sharer/sharer.php?u=www.facebook.com" target="_blank" ><i class="fa fa-facebook fa-fw fa-3x"></i></a>
+                        </li>
+                        <li>
+                            <a href="https://www.twitter.com/sharer/sharer.php?u=www.twitter.com" target="_blank"><i class="fa fa-twitter fa-fw fa-3x"></i></a>
+                        </li>
+                    </ul>
+                    <hr class="small">
+                    <p class="text-muted">Copyright &copy; NYUAD Travel Map</p>
+                </div>
+            </div>
+        </div>
+        <a id="to-top" href="#top" class="btn btn-dark btn-lg"><i class="fa fa-chevron-up fa-fw fa-1x"></i></a>
+    </footer>
+
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+
+    <script>
+    // Closes the sidebar menu
+    $("#menu-close").click(function(e) {
+        e.preventDefault();
+        $("#sidebar-wrapper").toggleClass("active");
+    });
+    // Opens the sidebar menu
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#sidebar-wrapper").toggleClass("active");
+    });
+    // Scrolls to the selected menu item on the page
+    $(function() {
+        $('a[href*=#]:not([href=#],[data-toggle],[data-target],[data-slide])').click(function() {
+            if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') || location.hostname == this.hostname) {
+                var target = $(this.hash);
+                target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+                if (target.length) {
+                    $('html,body').animate({
+                        scrollTop: target.offset().top
+                    }, 1000);
+                    return false;
+                }
+            }
+        });
+    });
+    //#to-top button appears after scrolling
+    var fixed = false;
+    $(document).scroll(function() {
+        if ($(this).scrollTop() > 250) {
+            if (!fixed) {
+                fixed = true;
+                // $('#to-top').css({position:'fixed', display:'block'});
+                $('#to-top').show("slow", function() {
+                    $('#to-top').css({
+                        position: 'fixed',
+                        display: 'block'
+                    });
+                });
+            }
+        } else {
+            if (fixed) {
+                fixed = false;
+                $('#to-top').hide("slow", function() {
+                    $('#to-top').css({
+                        display: 'none'
+                    });
+                });
+            }
+        }
+    });
+    </script>
+    <script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+    <script src="main.js"></script>
+</body>
+
 </html>

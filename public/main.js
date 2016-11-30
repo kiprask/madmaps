@@ -117,7 +117,6 @@ $(document).ready(function(){
 			netID: $("#netID").val() || "ab123",
 			coordinates: $("#coordinates").val() || [{lat:54, long:25}, {lat:77, long:22}],
 			tGPA: parseFloat($("#tGPA").val()).toFixed(2) || 9000,
-			total: $("#total").val() || "150000",
 			created_at: new Date()
 		};
 

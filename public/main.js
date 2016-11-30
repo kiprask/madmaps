@@ -91,6 +91,8 @@ $(document).ready(function(){
 		var data = {
 			name: $("#username").val() || "ME",
 			netID: $("#netID").val() || "ab123",
+			coordinates: $("#coordinates").val() || [{lat:54, long:25}, {lat:77, long:22}],
+			tGPA: $("#tGPA").val() || "9000",
 			created_at: new Date()
 		};
 

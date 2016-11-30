@@ -105,8 +105,26 @@ function getAllData(){
 	});
 }
 
+function updateBG() {
+	var bgArray = ["../img/bg.jpg", "../img/campus.jpg", "../img/campus2.jpg"];
+	var i = 0;
+
+	setInterval(function() {	
+		i++;
+		if (i > 2) i = 0;
+		$(".header").css({"background": "url(" + bgArray[i]+") no-repeat center center scroll",
+						 "-webkit-background-size" : "cover",
+					     "-moz-background-size": "cover",
+					     "background-size" : "cover",
+					     "-o-background-size" : "cover"}
+		);
+	}, 5000);
+}
+
 $(document).ready(function(){
 	console.log("Page Loaded!");
+
+	updateBG();
 
 	$("#submitBtn").click(function () {
 

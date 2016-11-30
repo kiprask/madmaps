@@ -189,6 +189,12 @@ hr.small {
     margin-bottom: 30px;
 }
 
+@media(max-width:768px) {
+    .col-md-1{
+        width:16.66%;
+    }
+}
+
 /* Footer */
 
 footer {

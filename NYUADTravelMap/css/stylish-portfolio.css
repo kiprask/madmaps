@@ -140,7 +140,6 @@ hr.small {
     margin: 10px;
 }
 
-
 /* Results */
 
 .results {
@@ -155,6 +154,11 @@ hr.small {
 .results h3{
     color: black;
     margin-bottom: 2%;
+}
+
+#emissions{
+    font-size: 60px;
+    margin-bottom: 3%;
 }
 
 .results h4{

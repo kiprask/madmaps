@@ -3,13 +3,15 @@ var cities = [];
 var score = 0;
 
 function init(){
-  var southWest = L.latLng(-19, -65);
-  var northEast = L.latLng(59, 10);
+  var southWest = L.latLng(-67, -173);
+  var northEast = L.latLng(76, 179);
   var bounds = L.latLngBounds(southWest, northEast);
   // initalize leaflet map
   map = new L.Map('cartodb-map', {
     center: [15,15],
-    zoomSnap: 0
+    zoom:3,
+    zoomSnap: 0,
+    maxBounds: bounds
   });
 
   // initialize the base layer
@@ -25,7 +27,8 @@ function init(){
     layer.getSubLayer(0).infowindow = null;
     // remove cities that are near New York and Sydney from the SQL query to make sure NY and Sydney show -- a bit of a hack
     var subLayerOptions = {
-      sql: "SELECT * FROM ne_10m_populated_places_simple WHERE (pop_max > 1000000 OR featurecla = 'Admin-0 capital' OR name='Abu Dhabi') AND name != 'Bridgeport' AND name != 'New Haven' AND name != 'Newcastle' AND name != 'Providencetown'",
+      // sql: "SELECT * FROM ne_10m_populated_places_simple WHERE featurecla IN ('Admin-0 capital')",
+      sql: "SELECT * FROM ne_10m_populated_places_simple WHERE (pop_max > 1000000 OR featurecla = 'Admin-0 capital' OR name='Abu Dhabi') AND name NOT IN ('Bridgeport', 'New Haven', 'Newcastle', 'Providence', 'Nezahualcoyotl', 'Toluca', 'Zumpango', 'Puebla', 'Evanston', 'Waukegan', 'Aurora')",
       cartocss: "#example_cartodbjs_1{marker-fill: #109DCD; marker-width: 10; marker-line-color: white; marker-line-width: 0;}",
       infowindow: null
     }

@@ -92,6 +92,6 @@ app.get("/api", function (request, response) {
 app.get("*", function(request,response){
 	response.redirect("/");
 });
-
-app.listen(3000);
-console.log('Express started on port 3000');
+var port = process.env.PORT || 3000; 
+app.listen(port);
+console.log('Express started on port ' + port);

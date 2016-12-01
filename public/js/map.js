@@ -241,6 +241,8 @@ $(document).ready(function(){
       $("#emissionsText").html(''+ parseFloat(emissionScore).toFixed(2) + ' tons of CO2');
       $("#distance").html('Congratulations! You traveled <strong>' + distance + '</strong> kilometers! But... ');
       //Return false to prevent the form from submitting itself
+      
+      $("#error").html("");
     }
     else {
       $("#error").html('Enter your name and netID. Your netID should be no more than 7 characters.');      

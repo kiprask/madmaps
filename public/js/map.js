@@ -202,7 +202,6 @@ $(document).ready(function(){
   updateBG();
 
   $("#submitBtn").click(function () {
-
     console.log("submit button clicked!");
     score = 2*score;
     var emissionScore = emissionScoreCalculator(score);
@@ -210,8 +209,8 @@ $(document).ready(function(){
     var data = {
       name: $("#username").val() || "ME",
       netID: $("#netID").val() || "ab123",
-      coordinates: $("#coordinates").val() || [{lat:54, long:25}, {lat:77, long:22}],
-      tGPA: parseFloat($("#tGPA").val()).toFixed(2) || 9000,
+      coordinates: cities || [{}],
+      tGPA: parseFloat(emissionScore).toFixed(2) || 0,
       created_at: new Date()
     };
 
@@ -228,7 +227,6 @@ $(document).ready(function(){
 
   $("#getAllBtn").click(function() {
     console.log("getAll button clicked!");
-
     getAllData();
   });
 });

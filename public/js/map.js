@@ -9,7 +9,8 @@ function init(){
   // initalize leaflet map
   map = new L.Map('cartodb-map', {
     center: [15,15],
-    zoomSnap: 0
+    zoomSnap: 0,
+    zoom: 3
   });
 
   // initialize the base layer
@@ -28,7 +29,7 @@ function init(){
       sql: "SELECT * FROM ne_10m_populated_places_simple WHERE (pop_max > 1000000 OR featurecla = 'Admin-0 capital' OR name='Abu Dhabi') AND name != 'Bridgeport' AND name != 'New Haven' AND name != 'Newcastle' AND name != 'Providencetown'",
       cartocss: "#example_cartodbjs_1{marker-fill: #109DCD; marker-width: 10; marker-line-color: white; marker-line-width: 0;}",
       infowindow: null
-    }
+    };
     var subLayer = layer.getSubLayer(0);
     // `name` is binded to the tooltip later on
     subLayer.setInteractivity('cartodb_id, name');
@@ -72,7 +73,7 @@ function init(){
       weight: 2
     }).addTo(map);
   }
-};
+}
 
 // Distance calculator found here
 // http://stackoverflow.com/questions/27928/calculate-distance-between-two-latitude-longitude-points-haversine-formula
@@ -136,9 +137,6 @@ function saveRecord (theData) {
     },
     success: function (resp) {
       console.log(resp);
-      // // Render the note
-      // var htmlString = noteTemplate(theData);
-      // $("#notes").append(htmlString);
 
       // Empty the form.
       $("#username").val("");
@@ -189,6 +187,15 @@ function updateBG() {
   }, 5000);
 }
 
+//Check the User Input: name & netID 
+function isAlphaNum(str) {
+    return /^[A-Za-z0-9\s]+$/.test(str);
+}
+function checkStrLength(str) {
+    if (str.length <= 7) return true;
+    return false;
+}
+
 $(document).ready(function(){
   console.log("Page Loaded!");
   $("#results").hide();
@@ -200,23 +207,33 @@ $(document).ready(function(){
     score = 2*score;
     var emissionScore = emissionScoreCalculator(score);
     console.log(emissionScore);
-    var data = {
-      name: $("#username").val() || "ME",
-      netID: $("#netID").val() || "ab123",
-      coordinates: cities || [{}],
-      tGPA: parseFloat(emissionScore).toFixed(2) || 0,
-      created_at: new Date()
-    };
 
-    //Send the data to our saveRecord function
-    saveRecord(data);
-    $("#results").show();
-    for (var i = 0; i < 20; i++){
-      $("#addPeopleHere").append('<div class="col-md-1"> <img class="img-human img-responsive" src="img/human.png"> </div>')  
+    var name = $("#username").val();
+    var ID = $("#netID").val();
+    var data = {};
+
+    if (isAlphaNum(name) && isAlphaNum(ID) && checkStrLength(ID)) {
+      data = {
+        name: name || "ME",
+        netID: ID || "ab123",
+        coordinates: cities || [{}],
+        tGPA: parseFloat(emissionScore).toFixed(2) || 0,
+        created_at: new Date()
+      };
+
+        //Send the data to our saveRecord function
+        saveRecord(data);
+        $("#results").show();
+        for (var i = 0; i < 20; i++){
+          $("#addPeopleHere").append('<div class="col-md-1"> <img class="img-human img-responsive" src="img/human.png"> </div>');
+        }
+        $("#addExamplePersonHere").append('<div class="col-md-1"> <img class="img-human img-responsive" id="main" src="img/human.png"> </div>'); 
+        //Return false to prevent the form from submitting itself
+        return false;
+    }else {
+      alert("Please enter your name and netID correctly before calculate.");
     }
-    $("#addExamplePersonHere").append('<div class="col-md-1"> <img class="img-human img-responsive" id="main" src="img/human.png"> </div>'); 
-    //Return false to prevent the form from submitting itself
-    return false;
+
   });
 
   $("#getAllBtn").click(function() {

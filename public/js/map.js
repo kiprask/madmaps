@@ -205,6 +205,12 @@ $(document).ready(function(){
   init();
   updateBG();
 
+  $("#netID").keydown(function(event){ 
+      //when user presses enter key, trigger submitBtn click 
+      var keyCode = event.which;   
+      if (keyCode == 13) $("#submitBtn").trigger("click");
+  });
+
   $("#submitBtn").click(function () {
     console.log("submit button clicked!");
     score = 2*score;
@@ -221,7 +227,7 @@ $(document).ready(function(){
         coordinates: cities || [{}],
         tGPA: parseFloat(emissionScore).toFixed(2) || 0,
         created_at: new Date()
-      }
+      };
       // Send the data to our saveRecord function
       saveRecord(data);
       $("#results").show();

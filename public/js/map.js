@@ -105,6 +105,7 @@ function deg2rad(deg) {
   return deg * (Math.PI/180);
 }
 
+// Parameters and calculator from here: http://co2.myclimate.org/
 function emissionScoreCalculator(x){
   // E = ((ax^2+bx+c)/(S*PLF))*(1-CF)*(CW)*(EF*M+P)
   // x is the flight distance

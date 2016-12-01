@@ -9,14 +9,7 @@ function init(){
   // initalize leaflet map
   map = new L.Map('cartodb-map', {
     center: [15,15],
-    zoomSnap: 0,
-    zoom: 3,
-    dragging: false,
-    touchZoom : false,
-    scrollWheelZoom : false,
-    doubleClickZoom : false,
-    boxZoom : false,
-    tap : false,
+    zoomSnap: 0
   });
 
   // initialize the base layer

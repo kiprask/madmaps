@@ -14,6 +14,13 @@ app.set('view engine', 'html');
 // Enable json body parsing of application/json
 app.use(bodyParser.json());
 
+// Enable CORS
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
+
 //******* DATABASE Configuration *******
 // The username you use to log in to cloudant.com
 var CLOUDANT_USERNAME="kiprask";
@@ -29,7 +36,7 @@ var CLOUDANT_URL = "https://" + CLOUDANT_USERNAME + ".cloudant.com/" + CLOUDANT_
 // GET - route to load the main page
 app.get("/", function (request, response) {
 	console.log("In main route");
-	response.render('index', {title: "Notepad"});
+	response.render('index.html', {title: "Notepad"});
 });
 
 app.get("/offset", function (request, response) {
@@ -92,6 +99,6 @@ app.get("/api", function (request, response) {
 app.get("*", function(request,response){
 	response.redirect("/");
 });
-
-app.listen(3000);
-console.log('Express started on port 3000');
+var port = process.env.PORT || 3000; 
+app.listen(port);
+console.log('Express started on port ' + port);

@@ -29,7 +29,7 @@ var vizjson = {
         "urlTemplate": "https:\/\/{s}.maps.nlp.nokia.com\/maptile\/2.1\/maptile\/newest\/normal.day\/{z}\/{x}\/{y}\/256\/png8?lg=eng&token=A7tBPacePg9Mj_zghvKt9Q&app_id=KuYppsdXZznpffJsKT24",
         "name": "Nokia Day",
         "className": "nokia_day",
-        "attribution": "\u00a92012 Nokia <a href='http:\/\/here.net\/services\/terms' target='_blank'>Terms of use<\/a>",
+        "attribution": "\u00a92012 Nokia <a href='https:\/\/here.net\/services\/terms' target='_blank'>Terms of use<\/a>",
         "subdomains": "1234"
       },
       "infowindow": null,

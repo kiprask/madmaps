@@ -10,7 +10,12 @@ function init(){
   map = new L.Map('cartodb-map', {
     center: [15,15],
     zoom:3,
-    zoomSnap: 0
+    zoomSnap: 0,
+    maxBounds: bounds,
+    minZoom: 2,
+    wakeTime: 500,
+    sleepOpacity: .8,
+    sleepTime: 500
   });
 
   // initialize the base layer

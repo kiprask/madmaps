@@ -32,6 +32,11 @@ app.get("/", function (request, response) {
 	response.render('index', {title: "Notepad"});
 });
 
+app.get("/offset", function (request, response) {
+	console.log("In main route");
+	response.render('nyuadmap.html', {title: "Offset"});
+});
+
 // POST - route to create a new note.
 app.post("/save", function (request, response) {
 	console.log("Making a post!");

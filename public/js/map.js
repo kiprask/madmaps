@@ -197,6 +197,7 @@ function updateBG() {
 
 $(document).ready(function(){
   console.log("Page Loaded!");
+  $("#results").hide();
   init();
   updateBG();
 
@@ -216,7 +217,11 @@ $(document).ready(function(){
 
     //Send the data to our saveRecord function
     saveRecord(data);
-
+    $("#results").show();
+    for (var i = 0; i < 20; i++){
+      $("#addPeopleHere").append('<div class="col-md-1"> <img class="img-human img-responsive" src="img/human.png"> </div>')  
+    }
+    $("#addExamplePersonHere").append('<div class="col-md-1"> <img class="img-human img-responsive" id="main" src="img/human.png"> </div>'); 
     //Return false to prevent the form from submitting itself
     return false;
   });

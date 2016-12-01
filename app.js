@@ -36,7 +36,7 @@ var CLOUDANT_URL = "https://" + CLOUDANT_USERNAME + ".cloudant.com/" + CLOUDANT_
 // GET - route to load the main page
 app.get("/", function (request, response) {
 	console.log("In main route");
-	response.render('index', {title: "Notepad"});
+	response.render('index.html', {title: "Notepad"});
 });
 
 app.get("/offset", function (request, response) {

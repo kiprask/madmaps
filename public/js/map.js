@@ -11,7 +11,11 @@ function init(){
     center: [15,15],
     zoom:3,
     zoomSnap: 0,
-    maxBounds: bounds
+    maxBounds: bounds,
+    minZoom: 2,
+    wakeTime: 500,
+    sleepOpacity: .8,
+    sleepTime: 500
   });
 
   // initialize the base layer

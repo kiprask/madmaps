@@ -243,7 +243,7 @@ $(document).ready(function(){
       //Return false to prevent the form from submitting itself
     }
     else {
-      $("#error").html('Enter your name and netID. Your netID should be less than 7 characters.');      
+      $("#error").html('Enter your name and netID. Your netID should be no more than 7 characters.');      
     }
     return false;
   });
